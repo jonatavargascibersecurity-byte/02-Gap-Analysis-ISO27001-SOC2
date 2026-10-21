@@ -1,0 +1,26 @@
+control_id,clause,control_name,objective,category,owner,iso_ref,soc2_mapping,required,maturity_target,evidence_expected,status_planned
+A.5.1,5.1,Politicas de seguranca da informacao,Estabelecer politica aprovada e revisada anualmente,Governanca,CISO,A.5.1,,Sim,3,Politica aprovada; ata de revisao; versao
+A.5.7,A.5.7,Inteligencia de ameacas,Coletar e disseminar inteligencia relevante a ameacas,Governanca,CISO,A.5.7,CC3.2,Sim,3,Relatorio de ameacas; lista de fontes; distribuicao
+A.5.15,A.5.15,Controle de acesso,Definir regras de acesso baseado em necessidade de conhecimento,Acesso,CISO,A.5.15,CC6.1,Sim,4,Politica de acesso; matriz RBAC; revisoes
+A.5.18,A.5.18,Direitos de acesso de usuario,Provisionar/desprovisionar com aprovacao do dono,Acesso,Head de Engenharia de Plataforma,A.5.18,CC6.2,Sim,4,Fluxo de aprovacao; logs de provisionamento; revisao trimestral
+A.5.19,A.5.19,Seguranca em relacao a fornecedores,Gerenciar riscos de terceiros com processo formal,Terceiros,Head de Third-Party Risk,A.5.19,CC9.1,Sim,3,Politica TPRM; scorecard; contratos
+A.5.24,A.5.24,Planejamento e preparacao para incidentes,Ter plano de resposta a incidentes testado,Governanca,Head de Conformidade,A.5.24,CC7.3,Sim,4,Runbook; treino; teste de mesa
+A.5.30,A.5.30,Preparacao de TIC para continuidade,Garantir readiness de TIC para continuidade,Continuidade,Head de SRE,A.5.30,A1.1,Sim,3,BIA; plano de continuidade; testes
+A.8.1,A.8.1,Dispositivos de usuario,Gerenciar dispositivos autorizados e seguros,Endpoint,CISO,A.8.1,CC6.7,Sim,3,Inventario; MDM; politica
+A.8.2,A.8.2,Direitos de acesso privilegiado,Acesso privilegiado com MFA e just-in-time,Acesso,CISO,A.8.2,CC6.3,Sim,4,PIM; aprovacao; logs
+A.8.5,A.8.5,Autenticacao segura,MFA obrigatorio para acesso sensivel,Acesso,Head de Engenharia de Plataforma,A.8.5,CC6.1,Sim,4,Politica MFA; configuracao; relatorio
+A.8.8,A.8.8,Gerenciamento de vulnerabilidades tecnicas,Gerir vulnerabilidades com SLA por severidade,Vulnerabilidades,Head de Engenharia de Plataforma,A.8.8,CC7.1,Sim,4,Scanner; SLA; relatorio mensal
+A.8.11,A.8.11,Mascaramento de dados,Mascarar dados sensiveis em testes e logs,Dados,Head de Engenharia de Plataforma,A.8.11,CC6.7,Sim,3,Politica mascaramento; exemplos; revisao
+A.8.12,A.8.12,Prevenção contra vazamento de informacao,Prevenir e detectar vazamento de dados,Dados,Head de Engenharia de Plataforma,A.8.12,CC6.7,Sim,3,Regra DLP; alertas; revisao
+A.8.13,A.8.13,Cópia de segurança da informação,Backup com imutabilidade e teste de restauração,Continuidade,Head de Infraestrutura,A.8.13,A1.2,Sim,4,Politica backup; teste mensal; relatorio
+A.8.15,A.8.15,Logs de acesso e eventos,Centralizar logs com integridade e retenção,Monitoramento,Head de SRE,A.8.15,CC7.2,Sim,4,SIEM; regras; politica de log
+A.8.16,A.8.16,Atividades de monitoramento,Monitorar eventos de seguranca e alertar,Monitoramento,Head de SRE,A.8.16,CC7.2,Sim,4,Alertas; on-call; playbook
+A.8.20,A.8.20,Seguranca de redes,Segmentacao e proteção de rede,Redes,Head de Infraestrutura,A.8.20,CC6.6,Sim,4,Diagrama rede; regras FW; revisao
+A.8.21,A.8.21,Seguranca de serviços de rede,Seguranca em serviços de rede expostos,Redes,Head de Infraestrutura,A.8.21,CC6.6,Sim,4,WAF; TLS; hardening
+A.8.23,A.8.23,Seguranca de serviços web,Seguranca em aplicações web contra OWASP top 10,Aplicacao,Head de Engenharia de Plataforma,A.8.23,CC7.1,Sim,3,Checklist SAST/DAST; correções
+A.8.24,A.8.24,Uso de criptografia,Criptografia em repouso e em trânsito,Dados,CISO,A.8.24,CC6.1,Sim,4,Politica criptografia; inventario chaves
+A.8.25,A.8.25,Ciclo de vida seguro de desenvolvimento,Seguranca integrada ao SDLC,Aplicacao,Head de Engenharia de Plataforma,A.8.25,CC8.1,Sim,3,SSDLC; gates; treinamento
+A.8.26,A.8.26,Requisitos de seguranca de aplicacoes,Requisitos de seguranca definidos desde o inicio,Aplicacao,Head de Engenharia de Plataforma,A.8.26,CC8.1,Sim,3,Requisitos; review; rastreabilidade
+A.8.28,A.8.28,Codificacao segura,Praticas de codificacao segura e revisao de codigo,Aplicacao,Head de Engenharia de Plataforma,A.8.28,CC8.1,Sim,3,Guia; PR review; ferramentas
+A.8.31,A.8.31,Separacao de ambientes,Separacao entre desenvolvimento; teste; producao,Ambiente,Head de Engenharia de Plataforma,A.8.31,CC6.3,Sim,4,IAM por ambiente; rede; dados
+A.8.32,A.8.32,Mudanças em sistemas de informação,Gestao de mudanças com aprovacao e rollback,Mudancas,Head de Engenharia de Plataforma,A.8.32,CC8.1,Sim,4,Change management; CAB; logs

@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang='pt-BR'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>ISO27001 & SOC2 Gap Dashboard - Meridian Pay</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#1b2430;--muted:#5c6b7a;--line:#dfe5ec}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#0b1b3a,#0b5fff);color:#fff;padding:28px 32px}
+header h1{margin:0 0 6px}header p{margin:0;opacity:.85}
+main{padding:24px 32px 48px;max-width:1180px;margin:0 auto}
+h2{margin:32px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cards{display:flex;flex-wrap:wrap;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;min-width:180px;flex:1}
+.card .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.card .value{font-size:28px;font-weight:700;margin-top:6px}
+.card .sub{font-size:12px;color:var(--muted);margin-top:4px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:9px 12px;text-align:left;font-size:13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef2f7;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+tr:last-child td{border-bottom:none}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;color:#fff}
+.muted{color:var(--muted)}
+footer{color:var(--muted);font-size:12px;margin-top:32px;border-top:1px solid var(--line);padding-top:12px}
+</style></head><body>
+<header><h1>ISO/IEC 27001:2017 & SOC 2 Readiness Dashboard - Meridian Pay</h1>
+<p>Fictional Brazilian fintech &#183; generated 2026-10-21 18:48 UTC</p></header>
+<main>
+<div class='cards'>
+<div class='card'><div class='label'>Controls mapped</div><div class='value'>25</div><div class='sub'>Annex A + SOC 2 criteria</div></div>
+<div class='card'><div class='label'>Findings</div><div class='value'>18</div><div class='sub'>4 Critical / 14 High</div></div>
+<div class='card'><div class='label'>Tracker items</div><div class='value'>18</div><div class='sub'>Action plans tracked</div></div>
+<div class='card'><div class='label'>Avg gap (tracker)</div><div class='value'>1.1</div><div class='sub'>Target - Current maturity</div></div>
+</div>
+<h2>Findings by Severity</h2><table><thead><tr><th>ID</th><th>Framework</th><th>Control</th><th>Severity</th><th>Responsible</th><th>Target</th><th>Status</th></tr></thead><tbody>
+<tr><td>GF-003</td><td>ISO/IEC 27001</td><td>A.5.18</td><td><span class='pill' style='background:#c62828'>Crítico</span></td><td>Head de Engenharia de Plataforma</td><td class='muted'>2026-10-15</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-007</td><td>ISO/IEC 27001</td><td>A.8.8</td><td><span class='pill' style='background:#c62828'>Crítico</span></td><td>Head de Engenharia de Plataforma</td><td class='muted'>2026-10-20</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-009</td><td>ISO/IEC 27001</td><td>A.8.13</td><td><span class='pill' style='background:#c62828'>Crítico</span></td><td>Head de Infraestrutura</td><td class='muted'>2026-10-25</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-015</td><td>SOC 2</td><td>CC7.3</td><td><span class='pill' style='background:#c62828'>Crítico</span></td><td>Head de Infraestrutura</td><td class='muted'>2026-10-28</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-001</td><td>ISO/IEC 27001</td><td>A.5.1</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Conformidade</td><td class='muted'>2026-10-31</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-002</td><td>ISO/IEC 27001</td><td>A.5.15</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Engenharia de Plataforma</td><td class='muted'>2026-11-15</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-004</td><td>ISO/IEC 27001</td><td>A.5.19</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Third-Party Risk</td><td class='muted'>2026-11-30</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-005</td><td>ISO/IEC 27001</td><td>A.5.24</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Conformidade</td><td class='muted'>2026-10-31</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-006</td><td>ISO/IEC 27001</td><td>A.8.2</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Engenharia de Plataforma</td><td class='muted'>2026-11-15</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-008</td><td>ISO/IEC 27001</td><td>A.8.12</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Engenharia de Plataforma</td><td class='muted'>2026-11-10</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-010</td><td>ISO/IEC 27001</td><td>A.8.16</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de SRE</td><td class='muted'>2026-11-01</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-011</td><td>SOC 2</td><td>CC6.1</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Engenharia de Plataforma</td><td class='muted'>2026-11-20</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-012</td><td>SOC 2</td><td>CC6.2</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de RH/TI</td><td class='muted'>2026-11-15</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-013</td><td>SOC 2</td><td>CC7.2</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de SRE</td><td class='muted'>2026-11-10</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-014</td><td>SOC 2</td><td>CC7.3</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Conformidade</td><td class='muted'>2026-10-31</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-016</td><td>ISO/IEC 27001</td><td>A.8.32</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Engenharia de Plataforma</td><td class='muted'>2026-11-05</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-017</td><td>ISO/IEC 27001</td><td>A.8.25</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Engenharia de Plataforma</td><td class='muted'>2026-11-12</td><td class='muted'>Em andamento</td></tr>
+<tr><td>GF-018</td><td>SOC 2</td><td>CC9.1</td><td><span class='pill' style='background:#ef6c00'>Alto</span></td><td>Head de Third-Party Risk</td><td class='muted'>2026-11-25</td><td class='muted'>Em andamento</td></tr>
+</tbody></table>
+<h2>Readiness Tracker - Maturity</h2><table><thead><tr><th>Control/Criteria</th><th>Framework</th><th>Current</th><th>Target</th><th>Gap</th><th>Owner</th><th>Status</th><th>Last Assessed</th><th>Due</th></tr></thead><tbody>
+<tr><td>A.5.18</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#ef6c00'>2</span> Managed</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>2</td><td>Head de Engenharia de Plataforma</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-05</td><td class='muted'>2026-12-05</td></tr>
+<tr><td>CC6.2</td><td>SOC 2</td><td><span class='pill' style='background:#ef6c00'>2</span> Managed</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>2</td><td>Head de RH/TI</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-18</td><td class='muted'>2026-12-18</td></tr>
+<tr><td>A.5.1</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#ef6c00'>2</span> Managed</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td>1</td><td>Head de Conformidade</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-01</td><td class='muted'>2026-12-01</td></tr>
+<tr><td>A.5.15</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Engenharia de Plataforma</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-05</td><td class='muted'>2026-12-05</td></tr>
+<tr><td>A.5.19</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#ef6c00'>2</span> Managed</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td>1</td><td>Head de Third-Party Risk</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-08</td><td class='muted'>2026-12-08</td></tr>
+<tr><td>A.5.24</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Conformidade</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-08</td><td class='muted'>2026-12-08</td></tr>
+<tr><td>A.8.2</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Engenharia de Plataforma</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-10</td><td class='muted'>2026-12-10</td></tr>
+<tr><td>A.8.8</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Engenharia de Plataforma</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-10</td><td class='muted'>2026-12-10</td></tr>
+<tr><td>A.8.12</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#ef6c00'>2</span> Managed</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td>1</td><td>Head de Engenharia de Plataforma</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-12</td><td class='muted'>2026-12-12</td></tr>
+<tr><td>A.8.13</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Infraestrutura</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-12</td><td class='muted'>2026-12-12</td></tr>
+<tr><td>A.8.16</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de SRE</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-15</td><td class='muted'>2026-12-15</td></tr>
+<tr><td>CC6.1</td><td>SOC 2</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Engenharia de Plataforma</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-18</td><td class='muted'>2026-12-18</td></tr>
+<tr><td>CC7.2</td><td>SOC 2</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de SRE</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-20</td><td class='muted'>2026-12-20</td></tr>
+<tr><td>CC7.3</td><td>SOC 2</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Conformidade</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-20</td><td class='muted'>2026-12-20</td></tr>
+<tr><td>A1.3</td><td>SOC 2</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Infraestrutura</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-22</td><td class='muted'>2026-12-22</td></tr>
+<tr><td>CC9.1</td><td>SOC 2</td><td><span class='pill' style='background:#ef6c00'>2</span> Managed</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td>1</td><td>Head de Third-Party Risk</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-22</td><td class='muted'>2026-12-22</td></tr>
+<tr><td>A.8.32</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td><span class='pill' style='background:#2e7d32'>4</span> Quantitatively managed</td><td>1</td><td>Head de Engenharia de Plataforma</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-25</td><td class='muted'>2026-12-25</td></tr>
+<tr><td>A.8.25</td><td>ISO/IEC 27001</td><td><span class='pill' style='background:#ef6c00'>2</span> Managed</td><td><span class='pill' style='background:#f9a825'>3</span> Defined</td><td>1</td><td>Head de Engenharia de Plataforma</td><td class='muted'>Em andamento</td><td class='muted'>2026-09-25</td><td class='muted'>2026-12-25</td></tr>
+</tbody></table>
+<footer>Generated by <span class='mono'>python -m gapanalysis dashboard</span> &#183; portfolio project, fictional scenario.</footer>
+</main></body></html>

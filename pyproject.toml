@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gapanalysis"
+version = "1.0.0"
+description = "ISO/IEC 27001:2017 & SOC 2 Trust Service Criteria Gap Analysis (GRC portfolio)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Carlos Caceres" }]
+keywords = ["grc", "iso27001", "soc2", "gap-analysis", "compliance", "cybersecurity"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+gapanalysis = "gapanalysis.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

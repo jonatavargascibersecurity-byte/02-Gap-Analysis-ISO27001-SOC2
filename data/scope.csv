@@ -1,0 +1,3 @@
+framework,org_name,scope_description,applicability_date,approved_by,auditor
+ISO/IEC 27001:2017,Meridian Pay,ISMS covering onboarding digital; API PIX; processamento de pagamentos; dados de clientes; infraestrutura em nuvem e governanca,2026-01-01,CISO,Internal Audit
+SOC 2 - Trust Service Criteria 2017,Meridian Pay,SOC 2 Type 1/2 readiness for Security; Availability; Confidentiality (focus on Processing Integrity optional),2026-03-01,CFO/Internal Audit,External Auditor (readiness)

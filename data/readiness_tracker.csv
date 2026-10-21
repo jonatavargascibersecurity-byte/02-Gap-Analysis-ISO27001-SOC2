@@ -1,0 +1,19 @@
+control_id,framework,target_maturity,current_maturity,owner,status,last_assessed,due_for_review,action_plan_id,notes
+A.5.1,ISO/IEC 27001,3,2,Head de Conformidade,Em andamento,2026-09-01,2026-12-01,AP-001,Revisao em andamento
+A.5.15,ISO/IEC 27001,4,3,Head de Engenharia de Plataforma,Em andamento,2026-09-05,2026-12-05,AP-002,Acesso generico a ser tratado
+A.5.18,ISO/IEC 27001,4,2,Head de Engenharia de Plataforma,Em andamento,2026-09-05,2026-12-05,AP-003,Bloqueio obrigatorio a ser configurado
+A.5.19,ISO/IEC 27001,3,2,Head de Third-Party Risk,Em andamento,2026-09-08,2026-12-08,AP-004,Scorecard em construcao
+A.5.24,ISO/IEC 27001,4,3,Head de Conformidade,Em andamento,2026-09-08,2026-12-08,AP-005,Teste de mesa agendado
+A.8.2,ISO/IEC 27001,4,3,Head de Engenharia de Plataforma,Em andamento,2026-09-10,2026-12-10,AP-006,JIT a implementar
+A.8.8,ISO/IEC 27001,4,3,Head de Engenharia de Plataforma,Em andamento,2026-09-10,2026-12-10,AP-007,Dashboard SLA pendente
+A.8.12,ISO/IEC 27001,3,2,Head de Engenharia de Plataforma,Em andamento,2026-09-12,2026-12-12,AP-008,Modo teste para bloqueio
+A.8.13,ISO/IEC 27001,4,3,Head de Infraestrutura,Em andamento,2026-09-12,2026-12-12,AP-009,Imutabilidade pendente
+A.8.16,ISO/IEC 27001,4,3,Head de SRE,Em andamento,2026-09-15,2026-12-15,AP-010,Cobertura a ampliar
+CC6.1,SOC 2,4,3,Head de Engenharia de Plataforma,Em andamento,2026-09-18,2026-12-18,AP-011,Revisao trimestral a formalizar
+CC6.2,SOC 2,4,2,Head de RH/TI,Em andamento,2026-09-18,2026-12-18,AP-012,Automacao desprovisionamento
+CC7.2,SOC 2,4,3,Head de SRE,Em andamento,2026-09-20,2026-12-20,AP-013,Cobertura de log pendente
+CC7.3,SOC 2,4,3,Head de Conformidade,Em andamento,2026-09-20,2026-12-20,AP-014,Template incidente pendente
+A1.3,SOC 2,4,3,Head de Infraestrutura,Em andamento,2026-09-22,2026-12-22,AP-015,Evidencias teste restauração
+CC9.1,SOC 2,3,2,Head de Third-Party Risk,Em andamento,2026-09-22,2026-12-22,AP-016,Inventario terceiros incompleto
+A.8.32,ISO/IEC 27001,4,3,Head de Engenharia de Plataforma,Em andamento,2026-09-25,2026-12-25,AP-017,Rollback obrigatorio
+A.8.25,ISO/IEC 27001,3,2,Head de Engenharia de Plataforma,Em andamento,2026-09-25,2026-12-25,AP-018,Gates SAST obrigatorios
