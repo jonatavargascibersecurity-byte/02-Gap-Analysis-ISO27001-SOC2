@@ -1,18 +1,18 @@
-# ISO/IEC 27001:2017 & SOC 2 Gap Analysis (Meridian Pay)
+# Análise de Lacunas ISO/IEC 27001:2017 & SOC 2 (Meridian Pay)
 
-Evidence-driven gap analysis for a fictional Brazilian fintech (**Meridian Pay**), mapping **ISO/IEC 27001:2017 Annex A** controls to **SOC 2 Trust Service Criteria (Security/Availability/Confidentiality)**.
+Análise de lacunas orientada a evidências para uma fintech brasileira fictícia (**Meridian Pay**), mapeando controles do **Anexo A da ISO/IEC 27001:2017** aos **Critérios de Serviço de Confiança SOC 2 (Segurança/Disponibilidade/Confidencialidade)**.
 
-## Features
+## Funcionalidades
 
-- **Annex A mapping**: 25 controls with owners, evidence expected and maturity targets
-- **SOC 2 readiness**: TSC mapping (CC6/CC7/CC9/A1) with focus on common audit findings
-- **Gap findings**: Critical/High prioritized with responsible, target dates and evidence needed
-- **Readiness tracker**: maturity 0-5 with gap calculation and review cadence
+- **Mapeamento Anexo A**: 25 controles com responsáveis, evidências esperadas e metas de maturidade
+- **Prontidão SOC 2**: mapeamento para TSC com foco em achados comuns de auditoria
+- **Achados de lacuna**: priorização Crítico/Alto com responsável, prazo e evidências necessárias
+- **Tracker de prontidão**: maturidade 0-5 com cálculo de lacuna e cadência de revisão
 - **CLI**: `validate`, `summary`, `findings`, `tracker`, `report`, `dashboard`
-- **Reports**: Markdown executive report + self-contained HTML dashboard
-- **Zero runtime deps**: pure Python stdlib, CSV as single source of truth
+- **Relatórios**: relatório executivo em Markdown + dashboard HTML autocontido
+- **Sem dependências em tempo de execução**: Python puro (stdlib), CSV como fonte única da verdade
 
-## Quick start
+## Início rápido
 
 ```bash
 cd 02-Gap-Analysis-ISO27001-SOC2
@@ -23,13 +23,13 @@ python -m gapanalysis report --out build
 python -m gapanalysis dashboard --out build
 ```
 
-## Data model
+## Estrutura de dados
 
-- `data/scope.csv` - ISMS scope and SOC 2 scope
-- `data/controls_iso27001.csv` - Annex A controls with SOC 2 mapping
-- `data/gap_findings.csv` - findings with severity, actions and evidence
-- `data/readiness_tracker.csv` - maturity tracking
+- `data/scope.csv` - escopo do SGSI e escopo SOC 2
+- `data/controls_iso27001.csv` - controles do Anexo A com mapeamento SOC 2
+- `data/gap_findings.csv` - achados com severidade, ações e evidências
+- `data/readiness_tracker.csv` - acompanhamento de maturidade
 
-## License
+## Licença
 
 MIT
