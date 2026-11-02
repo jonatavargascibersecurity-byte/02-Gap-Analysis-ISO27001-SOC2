@@ -19,8 +19,8 @@ cd 02-Gap-Analysis-ISO27001-SOC2
 pip install -e ".[dev]"
 python -m gapanalysis validate
 python -m gapanalysis summary
-python -m gapanalysis report --out build
-python -m gapanalysis dashboard --out build
+python -m gapanalysis --out build report
+python -m gapanalysis --out build dashboard
 python -m gapanalysis --out build soa
 python -m gapanalysis --out build remediation --as-of 2026-11-02
 python -m gapanalysis --out build crosswalk
