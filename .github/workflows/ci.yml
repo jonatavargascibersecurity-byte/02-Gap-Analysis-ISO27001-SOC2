@@ -26,6 +26,9 @@ jobs:
         run: |
           python -m gapanalysis report --out build
           python -m gapanalysis dashboard --out build
+          python -m gapanalysis --out build soa
+          python -m gapanalysis --out build remediation --as-of 2026-11-02
+          python -m gapanalysis --out build crosswalk
       - uses: actions/upload-artifact@v4
         with:
           name: gap-artefacts

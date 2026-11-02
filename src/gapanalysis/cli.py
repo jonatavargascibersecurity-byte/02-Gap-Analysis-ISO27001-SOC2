@@ -4,11 +4,22 @@ from __future__ import annotations
 
 import argparse
 import sys
+from datetime import date
 from pathlib import Path
 
 from .loader import DataError, load_gap_set
+from .remediation import build_plan, build_plan_markdown, plan_summary, write_plan_csv
 from .report import build_executive_report
 from .dashboard import write_dashboard
+from .soa import (
+    build_crosswalk_markdown,
+    build_soa,
+    build_soa_markdown,
+    crosswalk_rows,
+    soa_summary,
+    write_crosswalk_csv,
+    write_soa_csv,
+)
 
 DEFAULT_DATA_DIR = "data"
 DEFAULT_OUT_DIR = "build"
@@ -78,6 +89,85 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_soa(args: argparse.Namespace) -> int:
+    from .soa import COMPANY
+
+    g = load_gap_set(args.data)
+    entries = build_soa(g)
+    scope = g.scope[0].scope_description if g.scope else "escopo do SGSI"
+    out_dir = Path(args.out)
+    md = out_dir / "SoA.md"
+    csv_path = out_dir / "soa.csv"
+    md.parent.mkdir(parents=True, exist_ok=True)
+    md.write_text(build_soa_markdown(entries, scope), encoding="utf-8")
+    write_soa_csv(entries, csv_path)
+    summary = soa_summary(entries)
+    print(f"soa written: {md}")
+    print(f"soa data   : {csv_path}")
+    print(
+        "controls: {total} | applicable: {applicable} | implemented/optimised: {done} | "
+        "partial: {partial} | not implemented: {missing} | open findings: {findings}".format(
+            total=len(entries),
+            applicable=summary["applicable"],
+            done=summary["Implementado"] + summary["Otimizado"],
+            partial=summary["Parcialmente implementado"],
+            missing=summary["Nao implementado"],
+            findings=summary["with_open_findings"],
+        )
+    )
+    print(f"organization: {COMPANY}")
+    return 0
+
+
+def cmd_crosswalk(args: argparse.Namespace) -> int:
+    g = load_gap_set(args.data)
+    rows = crosswalk_rows(build_soa(g))
+    out_dir = Path(args.out)
+    md = out_dir / "framework-crosswalk.md"
+    csv_path = out_dir / "framework-crosswalk.csv"
+    md.parent.mkdir(parents=True, exist_ok=True)
+    md.write_text(build_crosswalk_markdown(rows), encoding="utf-8")
+    write_crosswalk_csv(rows, csv_path)
+    categories = sorted({row["category"] for row in rows})
+    print(f"crosswalk written: {md}")
+    print(f"crosswalk data   : {csv_path}")
+    print(f"controls: {len(rows)} | categories: {len(categories)}")
+    return 0
+
+
+def cmd_remediation(args: argparse.Namespace) -> int:
+    from .soa import COMPANY
+
+    g = load_gap_set(args.data)
+    try:
+        as_of = date.fromisoformat(args.as_of) if args.as_of else date.today()
+    except ValueError:
+        print(f"invalid --as-of date: {args.as_of!r} (expected YYYY-MM-DD)", file=sys.stderr)
+        return 3
+    plan = build_plan(g, as_of)
+    out_dir = Path(args.out)
+    md = out_dir / "remediation-plan.md"
+    csv_path = out_dir / "remediation-plan.csv"
+    md.parent.mkdir(parents=True, exist_ok=True)
+    md.write_text(build_plan_markdown(plan, COMPANY, as_of), encoding="utf-8")
+    write_plan_csv(plan, csv_path)
+    summary = plan_summary(plan)
+    print(f"remediation plan written: {md}")
+    print(f"remediation data        : {csv_path}")
+    print(
+        "open findings: {total} | critical/high: {ch} | overdue: {overdue} | "
+        "quick wins: {qw} | structural: {st} | monitor: {mon}".format(
+            total=summary["total"],
+            ch=summary["critical_high"],
+            overdue=summary["overdue"],
+            qw=summary["Quick win"],
+            st=summary["Estrutural"],
+            mon=summary["Monitorar"],
+        )
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="gapanalysis", description="ISO/IEC 27001 & SOC 2 Gap Analysis Tool")
     p.add_argument("--data", default=DEFAULT_DATA_DIR)
@@ -89,6 +179,13 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_parser("tracker").set_defaults(func=cmd_tracker)
     sp.add_parser("report").set_defaults(func=cmd_report)
     sp.add_parser("dashboard").set_defaults(func=cmd_dashboard)
+    sp.add_parser("soa", help="generate the Statement of Applicability").set_defaults(func=cmd_soa)
+    sp.add_parser(
+        "crosswalk", help="export the shared NIST CSF/DORA/LGPD crosswalk"
+    ).set_defaults(func=cmd_crosswalk)
+    rem = sp.add_parser("remediation", help="generate the sequenced remediation plan")
+    rem.add_argument("--as-of", default=None, help="reference date YYYY-MM-DD (default: today)")
+    rem.set_defaults(func=cmd_remediation)
     return p
 
 

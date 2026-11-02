@@ -1,12 +1,12 @@
-# Gap Analysis Report - ISO/IEC 27001:2017 & SOC 2 Readiness - Meridian Pay
+# Gap Analysis Report - ISO/IEC 27001:2022 & SOC 2 Readiness - Meridian Pay
 
 > Fictional Brazilian fintech used as portfolio scenario.
 
-**Generated:** 2026-10-21 18:42 UTC | **Reference date:** 2026-10-21
+**Generated:** 2026-11-02 14:15 UTC | **Reference date:** 2026-11-02
 
 ## 1) Scope
 
-### ISO/IEC 27001:2017
+### ISO/IEC 27001:2022
 - **Organization:** Meridian Pay
 - **Scope:** ISMS covering onboarding digital; API PIX; processamento de pagamentos; dados de clientes; infraestrutura em nuvem e governanca
 - **Applicability:** 2026-01-01 | **Approved by:** CISO | **Auditor:** Internal Audit
@@ -19,7 +19,7 @@
 ## 2) Executive Summary
 
 - **Annex A controls mapped:** 25
-- **Gap findings:** 18 (3 Critical / 14 High)
+- **Gap findings:** 18 (4 Critical / 14 High)
 - **Readiness tracker items:** 18
 
 ## 3) Top Findings (by severity)
@@ -29,6 +29,7 @@
 | GF-003 | ISO/IEC 27001 | A.5.18 | Crítico | Head de Engenharia de Plataforma | 2026-10-15 | Em andamento |
 | GF-007 | ISO/IEC 27001 | A.8.8 | Crítico | Head de Engenharia de Plataforma | 2026-10-20 | Em andamento |
 | GF-009 | ISO/IEC 27001 | A.8.13 | Crítico | Head de Infraestrutura | 2026-10-25 | Em andamento |
+| GF-015 | SOC 2 | CC7.3 | Crítico | Head de Infraestrutura | 2026-10-28 | Em andamento |
 | GF-001 | ISO/IEC 27001 | A.5.1 | Alto | Head de Conformidade | 2026-10-31 | Em andamento |
 | GF-002 | ISO/IEC 27001 | A.5.15 | Alto | Head de Engenharia de Plataforma | 2026-11-15 | Em andamento |
 | GF-004 | ISO/IEC 27001 | A.5.19 | Alto | Head de Third-Party Risk | 2026-11-30 | Em andamento |
@@ -43,7 +44,6 @@
 | GF-016 | ISO/IEC 27001 | A.8.32 | Alto | Head de Engenharia de Plataforma | 2026-11-05 | Em andamento |
 | GF-017 | ISO/IEC 27001 | A.8.25 | Alto | Head de Engenharia de Plataforma | 2026-11-12 | Em andamento |
 | GF-018 | SOC 2 | CC9.1 | Alto | Head de Third-Party Risk | 2026-11-25 | Em andamento |
-| GF-015 | SOC 2 | CC7.3 | A1 - Availability gap | A1 checklist; relatorio de teste; aprovacao | Head de Infraestrutura | 2026-10-28 |
 
 ## 4) Readiness Tracker (Maturity)
 
@@ -90,6 +90,13 @@
 - **Recommended action:** Ativar imutabilidade; testar restauração por servico critico; registrar evidencia
 - **Evidence needed:** Config backup; verificação de imutabilidade; relatorio de restauracao
 - **Responsible / Target:** Head de Infraestrutura / 2026-10-25
+
+### GF-015 - CC7.3 [Crítico]
+- **Requirement:** Backup e restauração com evidencias
+- **Observed:** Teste de restauração nao documentado com sucesso/falha e tempo
+- **Recommended action:** Documentar cada teste com RTO medido e aprovacao
+- **Evidence needed:** A1 checklist; relatorio de teste; aprovacao
+- **Responsible / Target:** Head de Infraestrutura / 2026-10-28
 
 ### GF-001 - A.5.1 [Alto]
 - **Requirement:** Politica aprovada e revisada anualmente
@@ -147,16 +154,9 @@
 - **Evidence needed:** SOC 2 checklist; relatorio revisao; aprovacao
 - **Responsible / Target:** Head de Engenharia de Plataforma / 2026-11-20
 
-### GF-012 - CC6.2 [Alto]
-- **Requirement:** Registro de provisionamento e desprovisionamento
-- **Observed:** Falta evidencia de tempo entre término e revogacao em 5% das amostras
-- **Recommended action:** Automatizar desprovisionamento e medir tempo medio de revogacao
-- **Evidence needed:** Evidencias de onboarding/offboarding; metricas; SLA
-- **Responsible / Target:** Head de RH/TI / 2026-11-15
-
 ## 6) Approach
 
-- **ISO/IEC 27001:2017** - Annex A controls assessed against required evidence.
+- **ISO/IEC 27001:2022** - Annex A controls assessed against required evidence.
 - **SOC 2 (Security/Availability/Confidentiality)** - mapped to Trust Service Criteria with readiness focus.
 - **Evidence-driven** - each gap requires concrete evidence to be considered closed.
 - **Risk-based prioritization** - Critical/High first, tracked to due dates.

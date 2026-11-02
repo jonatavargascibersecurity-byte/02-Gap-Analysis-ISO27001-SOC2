@@ -17,7 +17,7 @@ def build_executive_report(g: GapSet) -> str:
     high = [f for f in g.findings if f.gap_severity == "Alto"]
     lines = []
     add = lines.append
-    add(f"# Gap Analysis Report - ISO/IEC 27001:2017 & SOC 2 Readiness - {COMPANY}")
+    add(f"# Gap Analysis Report - ISO/IEC 27001:2022 & SOC 2 Readiness - {COMPANY}")
     add("")
     add("> Fictional Brazilian fintech used as portfolio scenario.")
     add("")
@@ -63,7 +63,7 @@ def build_executive_report(g: GapSet) -> str:
         add("")
     add("## 6) Approach")
     add("")
-    add("- **ISO/IEC 27001:2017** - Annex A controls assessed against required evidence.")
+    add("- **ISO/IEC 27001:2022** - Annex A controls assessed against required evidence.")
     add("- **SOC 2 (Security/Availability/Confidentiality)** - mapped to Trust Service Criteria with readiness focus.")
     add("- **Evidence-driven** - each gap requires concrete evidence to be considered closed.")
     add("- **Risk-based prioritization** - Critical/High first, tracked to due dates.")
