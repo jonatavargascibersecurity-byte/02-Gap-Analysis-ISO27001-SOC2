@@ -8,8 +8,12 @@ Análise de lacunas orientada a evidências para uma fintech brasileira fictíci
 - **Prontidão SOC 2**: mapeamento para TSC com foco em achados comuns de auditoria
 - **Achados de lacuna**: priorização Crítico/Alto com responsável, prazo e evidências necessárias
 - **Tracker de prontidão**: maturidade 0-5 com cálculo de lacuna e cadência de revisão
-- **CLI**: `validate`, `summary`, `findings`, `tracker`, `report`, `dashboard`
+- **Statement of Applicability (SoA)**: aplicabilidade, justificativa, status, maturidade e evidência dos 25 controles do Anexo A
+- **Plano de remediação**: sequência por `severity x gap` em Quick win/Estrutural/Monitorar, com atraso e carga por dono
+- **Crosswalk**: ISO Anexo A → SOC 2 / NIST CSF 2.0 / DORA / LGPD, exportado em Markdown + CSV
+- **CLI**: `validate`, `summary`, `findings`, `tracker`, `report`, `dashboard`, `soa`, `remediation`, `crosswalk`
 - **Relatórios**: relatório executivo em Markdown + dashboard HTML autocontido
+- **Frameworks separados**: o SoA cobre **apenas ISO Anexo A**; os 6 achados SOC 2 são acompanhados no tracker e no plano de remediação, fora da declaração ISO
 - **Sem dependências em tempo de execução**: Python puro (stdlib), CSV como fonte única da verdade
 
 ## Início rápido

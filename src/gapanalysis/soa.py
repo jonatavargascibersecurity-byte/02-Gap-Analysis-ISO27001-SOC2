@@ -194,7 +194,9 @@ def soa_summary(entries: list[SoAEntry]) -> dict[str, int]:
     return summary
 
 
-def build_soa_markdown(entries: list[SoAEntry], scope_line: str) -> str:
+def build_soa_markdown(
+    entries: list[SoAEntry], scope_line: str, soc2_findings: int = 0
+) -> str:
     summary = soa_summary(entries)
     lines: list[str] = []
     add = lines.append
@@ -213,6 +215,10 @@ def build_soa_markdown(entries: list[SoAEntry], scope_line: str) -> str:
     add(f"- Parcialmente implementados: **{summary['Parcialmente implementado']}**")
     add(f"- Nao implementados: **{summary['Nao implementado']}**")
     add(f"- Com achado de lacuna em aberto: **{summary['with_open_findings']}**")
+    add("")
+    add("> Este SoA cobre apenas o Anexo A da ISO/IEC 27001. "
+        f"**{soc2_findings} achado(s) SOC 2** (Trust Service Criteria) sao acompanhados "
+        "no `readiness_tracker.csv` e no `remediation-plan.md`, fora desta declaracao.")
     add("")
     add("## 2) Declaracao de aplicabilidade")
     add("")

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 
 from .models import ControlISO27001, GapFinding, ReadinessItem, Scope
@@ -26,7 +27,13 @@ def _read_rows(path: Path) -> list[dict[str, str]]:
         reader = csv.DictReader(handle)
         if reader.fieldnames is None:
             raise DataError(f"empty data file: {path}")
-        return [dict(row) for row in reader]
+        rows = list(reader)
+        for line, row in enumerate(rows, start=2):
+            if None in row:
+                raise DataError(
+                    f"{path}:{line}: extra column(s) - row has more values than the header"
+                )
+        return rows
 
 
 @dataclass(frozen=True)
@@ -39,21 +46,62 @@ class GapSet:
     def validate(self) -> list[str]:
         issues: list[str] = []
         control_ids = {c.control_id for c in self.controls}
+        frameworks = {"ISO/IEC 27001", "SOC 2"}
+
+        seen_controls: set[str] = set()
+        for control in self.controls:
+            if control.control_id in seen_controls:
+                issues.append(f"{control.control_id}: duplicated control_id")
+            seen_controls.add(control.control_id)
+            if not 0 <= control.maturity_target <= 5:
+                issues.append(
+                    f"{control.control_id}: maturity_target must be between 0 and 5"
+                )
+
+        def soc2_control(control_id: str) -> bool:
+            # SOC 2 Trust Service Criteria are tracked outside the ISO Annex A
+            # catalogue: CC6/CC7/CC9 and A1 (Availability).
+            return control_id.startswith(("CC", "A1."))
+
+        seen_findings: set[str] = set()
         for f in self.findings:
-            if f.control_id not in control_ids and not f.control_id.startswith("CC"):
+            if f.finding_id in seen_findings:
+                issues.append(f"{f.finding_id}: duplicated finding_id")
+            seen_findings.add(f.finding_id)
+            if f.framework not in frameworks:
+                issues.append(f"{f.finding_id}: unknown framework '{f.framework}'")
+            if f.control_id not in control_ids and not soc2_control(f.control_id):
                 issues.append(f"{f.finding_id}: unknown control_id '{f.control_id}'")
             if f.gap_severity not in GAP_SEVERITY:
                 issues.append(f"{f.finding_id}: unknown gap_severity '{f.gap_severity}'")
             if f.status not in FINDING_STATUS:
                 issues.append(f"{f.finding_id}: unknown status '{f.status}'")
-        seen = set()
+            try:
+                date.fromisoformat(f.target_date)
+            except ValueError:
+                issues.append(f"{f.finding_id}: target_date must be YYYY-MM-DD")
+
+        seen_tracker: set[tuple[str, str]] = set()
         for t in self.tracker:
-            if t.control_id in seen and t.framework in ("ISO/IEC 27001", "SOC 2"):
-                # allow same control_id only if different framework? not required
-                pass
-            seen.add((t.control_id, t.framework))
+            key = (t.control_id, t.framework)
+            if key in seen_tracker:
+                issues.append(f"{t.control_id}/{t.framework}: duplicated tracker row")
+            seen_tracker.add(key)
+            if t.framework not in frameworks:
+                issues.append(f"{t.control_id}: unknown framework '{t.framework}'")
+            if t.control_id not in control_ids and not soc2_control(t.control_id):
+                issues.append(f"{t.control_id}: unknown control_id '{t.control_id}'")
+            if not 0 <= t.current_maturity <= 5 or not 0 <= t.target_maturity <= 5:
+                issues.append(f"{t.control_id}/{t.framework}: maturity must be 0-5")
             if t.current_maturity > t.target_maturity:
                 issues.append(f"{t.control_id}/{t.framework}: current_maturity > target_maturity")
+            for field_name in ("last_assessed", "due_for_review"):
+                try:
+                    date.fromisoformat(getattr(t, field_name))
+                except ValueError:
+                    issues.append(
+                        f"{t.control_id}/{t.framework}: {field_name} must be YYYY-MM-DD"
+                    )
         return issues
 
 

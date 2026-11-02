@@ -1,8 +1,10 @@
 """Tests for the Statement of Applicability and remediation plan."""
 
+from dataclasses import replace
 from datetime import date
 from pathlib import Path
 
+from gapanalysis.dashboard import build_dashboard
 from gapanalysis.loader import load_gap_set
 from gapanalysis.remediation import (
     build_plan,
@@ -87,3 +89,37 @@ def test_crosswalk_export(tmp_path):
     path = write_crosswalk_csv(rows, tmp_path / "crosswalk.csv")
     assert path.exists()
     assert len(path.read_text(encoding="utf-8").splitlines()) == len(rows) + 1
+
+
+def test_soa_declares_soc2_findings_separately():
+    g = load_gap_set(DATA_DIR)
+    soc2 = sum(1 for finding in g.findings if finding.framework == "SOC 2")
+    md = build_soa_markdown(build_soa(g), g.scope[0].scope_description, soc2)
+    assert "apenas o Anexo A da ISO/IEC 27001" in md
+    assert f"{soc2} achado(s) SOC 2" in md
+    assert "ISO/IEC 27001:2022" in md
+    assert "ISO/IEC 27001:2017" not in md
+
+
+def test_dashboard_uses_2022_and_separates_frameworks():
+    g = load_gap_set(DATA_DIR)
+    html = build_dashboard(g)
+    assert "ISO/IEC 27001:2022" in html
+    assert "ISO/IEC 27001:2017" not in html
+    assert "Annex A controls" in html
+    assert "SOC 2 findings" in html
+
+
+def test_validation_catches_broken_framework_and_duplicates():
+    g = load_gap_set(DATA_DIR)
+    broken_finding = replace(g.findings[0], framework="ISO 27001")
+    broken_tracker = replace(g.tracker[0], current_maturity=9)
+    broken = replace(
+        g,
+        findings=g.findings + [broken_finding],
+        tracker=g.tracker + [broken_tracker],
+    )
+    issues = broken.validate()
+    assert any("unknown framework" in issue for issue in issues)
+    assert any("duplicated finding_id" in issue for issue in issues)
+    assert any("maturity must be 0-5" in issue for issue in issues)

@@ -4,13 +4,13 @@ Este repositório foi pensado para gerar **evidência prática** ao estudar em t
 
 ## Mapeamento direto
 
-| Plataforma / Trilha / Sala | Foco | Como este repo se relaciona | Como foi/será aplicado |
+| Plataforma / Trilha / Sala | Foco | Como este repo se relaciona | Como foi aplicado (evidência) |
 |---|---|---|---|
-| [TryHackMe - Governance & Regulation](https://tryhackme.com/room/cybergovernanceregulation) | Governança, leis/regulamentos, framework GRC | Mapeamento direto com ISO/IEC 27001:2022, SOC 2 e elementos de governança. | Usar achados e SoA para demonstrar "Governança → Risco → Conformidade". |
-| [TryHackMe - Threats & Risks (Risk Management)](https://tryhackme.com/module/threats-and-risks) | Avaliar/responder/monitorar riscos | Lacunas, severidade, plano de remediação e tracker de maturidade. | Aplicar priorização por severidade + gap de maturidade ao invés de apenas severidade. |
-| [LetsDefend - SOC Manager Path](https://app.letsdefend.io/training) | Documentação, escalonamento, avaliação | Relatório executivo + artefatos auditáveis (SoA, plano de remediação). | Gerar evidências no formato pedido em auditorias/avaliações. |
-| [HTB Academy - SOC Analyst Path](https://academy.hackthebox.com/path/preview/soc-analyst) | Reporting e incident handling | Estrutura próxima a incident reporting. | Adaptar plano de remediação com responsáveis, prazos e evidências. |
-| [HTB - Governance & Compliance](https://www.hackthebox.com/cybersecurity-resources/governance_compliance) | DORA, NIST CSF 2.0, PCI-DSS | Crosswalk no SoA (NIST/DORA/LGPD). | Expandir mapeamento com base no que for estudado em DORA/NIST CSF 2.0. |
+| [TryHackMe - Governance & Regulation](https://tryhackme.com/room/cybergovernanceregulation) | Governança, leis/regulamentos, framework GRC | Mapeamento direto com ISO/IEC 27001:2022, SOC 2 e elementos de governança. | `soa` gera `build/SoA.md` com aplicabilidade, justificativa, status, maturidade e evidência dos 25 controles do Anexo A; SOC 2 aparece em seção separada. |
+| [TryHackMe - Threats & Risks (Risk Management)](https://tryhackme.com/module/threats-and-risks) | Avaliar/responder/monitorar riscos | Lacunas, severidade, plano de remediação e tracker de maturidade. | `remediation --as-of` ordena por `severity x gap` em Quick win/Estrutural/Monitorar e marca atrasos (8 vencidos em 2026-11-02). |
+| [LetsDefend - SOC Manager Path](https://app.letsdefend.io/training) | Documentação, escalonamento, avaliação | Relatório executivo + artefatos auditáveis (SoA, plano de remediação). | `report`/`dashboard` e `remediation-plan.csv` trazem dono, prazo e evidência necessária por achado — formato de auditoria. |
+| [HTB Academy - SOC Analyst Path](https://academy.hackthebox.com/path/preview/soc-analyst) | Reporting e incident handling | Estrutura próxima a incident reporting. | Cada achado tem `current_state`, `observed`, `recommended_action` e `evidence_needed`; o plano exporta esses campos sem perda. |
+| [HTB - Governance & Compliance](https://www.hackthebox.com/cybersecurity-resources/governance_compliance) | DORA, NIST CSF 2.0, PCI-DSS | Crosswalk no SoA (NIST/DORA/LGPD). | `crosswalk` exporta 25 controles em 12 categorias com referência NIST CSF 2.0, DORA e LGPD em Markdown + CSV. |
 
 ## Novos artefatos (Fase 1)
 
@@ -25,7 +25,7 @@ Este repositório foi pensado para gerar **evidência prática** ao estudar em t
 1. Estude a sala/trilha
 2. Identifique melhoria (nova evidência exigida, mapeamento, critério de priorização)
 3. Atualize CSVs/código
-4. Gere artefatos: `validate`, `soa`, `remediation`, `report`
+4. Gere artefatos: `validate`, `soa`, `remediation`, `crosswalk`, `report`
 5. **Commit com menção explícita**: `feat(gap): SoA+remediation from TryHackMe Governance&Regulation (room: https://tryhackme.com/room/cybergovernanceregulation) - resolve GF-XXX with evidence mapping`
 6. Registre no `learning-log/` (Fase 5)
 
@@ -34,4 +34,5 @@ Este repositório foi pensado para gerar **evidência prática** ao estudar em t
 - [x] SoA + Remediation Plan (Fase 1)
 - [x] Crosswalk compartilhado entre repos (Fase 4)
 - [x] `learning-log/` com template de write-up (Fase 5)
-- [ ] Metadados do GitHub (description/topics) atualizados via `gh repo edit`
+- [x] SoA separa explicitamente ISO Anexo A (25 controles) de achados SOC 2 (6), sem misturar frameworks
+- [x] Metadados do GitHub (description/topics) atualizados via API: *ISO/IEC 27001:2022 and SOC 2 gap analysis with generated Statement of Applicability, remediation plan and NIST CSF/DORA/LGPD crosswalk*; topics `compliance`, `audit`, `iso-27001`, `soc2`, `nist-csf`, `dora`, `lgpd`, `grc`, `tryhackme`, `hackthebox`, `python`, `portfolio`

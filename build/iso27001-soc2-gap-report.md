@@ -2,7 +2,7 @@
 
 > Fictional Brazilian fintech used as portfolio scenario.
 
-**Generated:** 2026-11-02 14:28 UTC | **Reference date:** 2026-11-02
+**Generated:** 2026-11-02 14:49 UTC | **Reference date:** 2026-11-02
 
 ## 1) Scope
 

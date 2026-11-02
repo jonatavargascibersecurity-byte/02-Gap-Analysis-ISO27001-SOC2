@@ -41,11 +41,15 @@ def cmd_summary(args: argparse.Namespace) -> int:
     g = load_gap_set(args.data)
     crit = [f for f in g.findings if f.gap_severity == "Crítico"]
     high = [f for f in g.findings if f.gap_severity == "Alto"]
+    iso = [f for f in g.findings if f.framework == "ISO/IEC 27001"]
+    soc2 = [f for f in g.findings if f.framework == "SOC 2"]
     print("=" * 68)
     print("ISO/IEC 27001 & SOC 2 GAP ANALYSIS - MERIDIAN PAY (READINESS)")
     print("=" * 68)
-    print(f"Controls (Annex A / mapped): {len(g.controls)}")
+    print(f"Annex A controls            : {len(g.controls)}")
     print(f"Gap findings               : {len(g.findings)}")
+    print(f"  - ISO/IEC 27001          : {len(iso)}")
+    print(f"  - SOC 2                  : {len(soc2)}")
     print(f"  - Critical               : {len(crit)}")
     print(f"  - High                   : {len(high)}")
     print(f"Readiness tracker items    : {len(g.tracker)}")
@@ -99,20 +103,25 @@ def cmd_soa(args: argparse.Namespace) -> int:
     md = out_dir / "SoA.md"
     csv_path = out_dir / "soa.csv"
     md.parent.mkdir(parents=True, exist_ok=True)
-    md.write_text(build_soa_markdown(entries, scope), encoding="utf-8")
+    soc2_findings = sum(1 for finding in g.findings if finding.framework == "SOC 2")
+    md.write_text(
+        build_soa_markdown(entries, scope, soc2_findings), encoding="utf-8"
+    )
     write_soa_csv(entries, csv_path)
     summary = soa_summary(entries)
     print(f"soa written: {md}")
     print(f"soa data   : {csv_path}")
     print(
         "controls: {total} | applicable: {applicable} | implemented/optimised: {done} | "
-        "partial: {partial} | not implemented: {missing} | open findings: {findings}".format(
+        "partial: {partial} | not implemented: {missing} | ISO open findings: {findings} | "
+        "SOC 2 findings (separate): {soc2}".format(
             total=len(entries),
             applicable=summary["applicable"],
             done=summary["Implementado"] + summary["Otimizado"],
             partial=summary["Parcialmente implementado"],
             missing=summary["Nao implementado"],
             findings=summary["with_open_findings"],
+            soc2=soc2_findings,
         )
     )
     print(f"organization: {COMPANY}")
