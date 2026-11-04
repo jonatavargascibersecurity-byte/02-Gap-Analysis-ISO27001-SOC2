@@ -1,5 +1,5 @@
 control_id,clause,control_name,objective,category,owner,iso_ref,soc2_mapping,required,maturity_target,evidence_expected,status_planned
-A.5.1,5.1,Politicas de seguranca da informacao,Estabelecer politica aprovada e revisada anualmente,Governanca,CISO,A.5.1,,Sim,3,Politica aprovada; ata de revisao; versao
+A.5.1,5.1,Politicas de seguranca da informacao,Estabelecer politica aprovada e revisada anualmente,Governanca,CISO,A.5.1,CC5.3,Sim,3,Politica aprovada; ata de revisao; versao
 A.5.7,A.5.7,Inteligencia de ameacas,Coletar e disseminar inteligencia relevante a ameacas,Governanca,CISO,A.5.7,CC3.2,Sim,3,Relatorio de ameacas; lista de fontes; distribuicao
 A.5.15,A.5.15,Controle de acesso,Definir regras de acesso baseado em necessidade de conhecimento,Acesso,CISO,A.5.15,CC6.1,Sim,4,Politica de acesso; matriz RBAC; revisoes
 A.5.18,A.5.18,Direitos de acesso de usuario,Provisionar/desprovisionar com aprovacao do dono,Acesso,Head de Engenharia de Plataforma,A.5.18,CC6.2,Sim,4,Fluxo de aprovacao; logs de provisionamento; revisao trimestral

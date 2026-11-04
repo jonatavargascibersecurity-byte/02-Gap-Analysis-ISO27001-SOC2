@@ -33,6 +33,12 @@ def test_data_loads_and_validates():
     assert g.validate() == []
 
 
+def test_every_annex_a_control_has_soc2_mapping():
+    g = load_gap_set(DATA_DIR)
+    missing = [c.control_id for c in g.controls if not c.soc2_mapping.strip()]
+    assert missing == []
+
+
 def test_findings_have_evidence():
     g = load_gap_set(DATA_DIR)
     for f in g.findings:

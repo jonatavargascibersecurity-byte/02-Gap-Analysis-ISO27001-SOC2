@@ -57,6 +57,11 @@ class GapSet:
                 issues.append(
                     f"{control.control_id}: maturity_target must be between 0 and 5"
                 )
+            if not control.soc2_mapping.strip():
+                issues.append(
+                    f"{control.control_id}: soc2_mapping is empty "
+                    "(crosswalk would show '-')"
+                )
 
         def soc2_control(control_id: str) -> bool:
             # SOC 2 Trust Service Criteria are tracked outside the ISO Annex A

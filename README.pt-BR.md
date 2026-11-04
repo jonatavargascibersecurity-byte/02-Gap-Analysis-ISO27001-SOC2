@@ -34,13 +34,13 @@ python -m gapanalysis --out build crosswalk
 
 Este repositório é um laboratório de prática para trilhas de GRC e auditoria. Cada sala/trilha vira uma melhoria rastreável; o mapeamento completo (plataforma, link, artefato e o que foi resolvido) está em [`PLATFORMS.md`](PLATFORMS.md).
 
-| Plataforma / trilha | Link | Como o repositório aplica |
+| Plataforma / conteúdo real | Link | Como o repositório aplica |
 |---|---|---|
-| TryHackMe - Governance & Regulation | [sala](https://tryhackme.com/room/cybergovernanceregulation) | SoA declara aplicabilidade, justificativa, status e evidência de cada controle do Anexo A. |
-| TryHackMe - Threats & Risks | [módulo](https://tryhackme.com/module/threats-and-risks) | Plano de remediação prioriza severidade x gap de maturidade (`Quick win` / `Estrutural` / `Monitorar`). |
-| LetsDefend - SOC Manager Path | [trilha](https://app.letsdefend.io/training) | Evidência, responsável e prazo no formato que uma auditoria pede. |
-| HTB Academy - SOC Analyst Path | [trilha](https://academy.hackthebox.com/path/preview/soc-analyst) | Relatório com evidência necessária e ação recomendada por achado. |
-| HTB - Governance & Compliance | [recursos](https://www.hackthebox.com/cybersecurity-resources/governance_compliance) | Crosswalk NIST CSF 2.0 / DORA / LGPD exportado em CSV e Markdown. |
+| **TryHackMe — Governance & Regulation** (sala) | [sala](https://tryhackme.com/room/cybergovernanceregulation) | SoA declara aplicabilidade, justificativa, status e evidência de cada controle do Anexo A. |
+| **TryHackMe — Risk Management** (sala) | [sala](https://tryhackme.com/room/seriskmanagement) | Plano de remediação prioriza severidade x gap de maturidade (`Quick win` / `Estrutural` / `Monitorar`). |
+| **LetsDefend — Risk Management** (curso) | [curso](https://app.letsdefend.io/training/lessons/risk-management) | Evidência, responsável e prazo no formato que uma auditoria pede. |
+| **HTB Academy — Security Audit and Testing** (módulo) | [módulo](https://academy.hackthebox.com/course/preview/security-audit-and-testing) | Relatório com evidência necessária e ação recomendada por achado. |
+| **HTB Academy — Information Security Guidelines** (módulo) | [módulo](https://academy.hackthebox.com/course/preview/information-security-guidelines) | Crosswalk NIST CSF 2.0 / DORA / LGPD exportado em CSV e Markdown. |
 
 ### Artefatos de auditoria
 
